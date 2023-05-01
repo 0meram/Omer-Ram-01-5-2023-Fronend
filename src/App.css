@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px;
+}
+
+.link:hover {
+  background-color: #444;
+}
+
+/* Main screen styles */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.search-input {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Favorites screen styles */
+
+.favorites-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #eee;
+  padding: 20px;
+}
+
+.favorites-heading {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.favorite-card:hover {
+  background-color: #ddd;
+}
+
+.favorite-card span {
+  margin-right: 10px;
+}
+
+.favorite-card button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.favorite-card button:hover {
+  color: red;
+}
+
+/* Home component */
+.Home {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Search component */
+.search {
+  width: 50%;
+  padding: 20px;
+}
+
+/* FoundCities component */
+.FoundCities {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* CurrentWeather component */
+.CurrentWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Card component */
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Card body */
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
