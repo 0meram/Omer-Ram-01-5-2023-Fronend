@@ -11,8 +11,13 @@ function Home() {
     useEffect(() => {
         if (searchTerm) {
             axios
-                .get(`/search/${searchTerm}`)
+                .get('http://localhost:5000/api/search', {
+                    params: {
+                        query: searchTerm
+                    }
+                })
                 .then((response) => {
+                    console.log('response:', response);
                     setFoundCities(response.data);
                 })
                 .catch((error) => {

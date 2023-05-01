@@ -7,7 +7,7 @@ function CurrentWeather(props) {
 
     useEffect(() => {
         axios
-            .get(`/current/${props.cityKey}`)
+            .get(`http://localhost:5000/api/currentWeather?cityKey=${props.cityKey}`)
             .then((response) => {
                 setCurrentWeather(response.data);
             })
@@ -18,11 +18,10 @@ function CurrentWeather(props) {
 
     return (
         <div className="CurrentWeather">
-            current wether
             {currentWeather ? (
                 <div>
-                    <h2>{currentWeather.LocalizedName}, {currentWeather.Country.LocalizedName}</h2>
-                    <p>{currentWeather.Temperature.Metric.Value}°C, {currentWeather.WeatherText}</p>
+                    <h1>{currentWeather.temperature}°C</h1>
+                    <h2>{currentWeather.weather_text}</h2>
                 </div>
             ) : (
                 <div>Loading...</div>
