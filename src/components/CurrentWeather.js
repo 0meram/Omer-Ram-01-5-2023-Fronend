@@ -18,6 +18,7 @@ function CurrentWeather(props) {
 
     return (
         <div className="CurrentWeather">
+            <h1>Current wether</h1>
             {currentWeather ? (
                 <div>
                     <h1>{currentWeather.temperature}°C</h1>
