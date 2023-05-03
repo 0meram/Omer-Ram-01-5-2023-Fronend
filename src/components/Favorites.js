@@ -8,7 +8,7 @@ function Favorites() {
 
     useEffect(() => {
         axios
-            .get("/favorites")
+            .get("http://localhost:5000/api/favorites")
             .then((response) => {
                 setFavorites(response.data);
             })
@@ -19,7 +19,7 @@ function Favorites() {
 
     const handleDeleteFavorite = (cityKey) => {
         axios
-            .delete(`/favorites/${cityKey}`)
+            .delete(`http://localhost:5000/api/favorites/${cityKey}`)
             .then(() => {
                 setFavorites(favorites.filter((favorite) => favorite.cityKey !== cityKey));
             })
@@ -29,13 +29,14 @@ function Favorites() {
     };
 
     return (
-        <div>
+        <div className='favorites-wrapper'>
             <h1>Favorites</h1>
             {favorites.map((favorite) => (
                 <FavoriteCard
-                    key={favorite.cityKey}
-                    cityKey={favorite.cityKey}
-                    cityName={favorite.cityName}
+                    key={favorite.city_key}
+                    cityKey={favorite.city_key}
+                    cityName={favorite.city_name}
+                    temperature={favorite.temperature}
                     onDelete={handleDeleteFavorite}
                 />
             ))}

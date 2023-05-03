@@ -7,6 +7,8 @@ function Home() {
     const [searchTerm, setSearchTerm] = useState('')
     const [foundCities, setFoundCities] = useState([])
     const [selectedCityKey, setSelectedCityKey] = useState(null)
+    const [selectedCityName, setSelectedCityName] = useState(null)
+    const [selectedCityTemperature, setSelectedCityTemperature] = useState(null)
 
     useEffect(() => {
         if (searchTerm) {
@@ -17,7 +19,6 @@ function Home() {
                     },
                 })
                 .then((response) => {
-                    console.log('response:', response)
                     setFoundCities(response.data)
                 })
                 .catch((error) => {
@@ -30,8 +31,26 @@ function Home() {
         setSearchTerm(event.target.value)
     }
 
-    const handleCityClick = (cityKey) => {
-        setSelectedCityKey(cityKey)
+    const handleCityClick = (city) => {
+        setSelectedCityKey('city.Key')
+        setSelectedCityName('city.Country.LocalizedName')
+        setSelectedCityTemperature('city.AdministrativeArea.LocalizedName')
+    }
+
+    const handleAddToFavorites = () => {
+        axios
+            .post('http://localhost:5000/api/favorites', {
+                userId: Date.now(),
+                cityKey: selectedCityKey,
+                cityName: selectedCityName,
+                temperature: selectedCityTemperature,
+            })
+            .then((response) => {
+                console.log('City added to favorites:', response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -46,13 +65,17 @@ function Home() {
                 />
                 <div className="CurrentWeather">
                     {selectedCityKey && <CurrentWeather cityKey={selectedCityKey} />}
+                    {selectedCityKey && (
+                        <button className='fav-btn' onClick={handleAddToFavorites}>Add to favorites</button>
+                    )}
                 </div>
             </div>
             <div className="FoundCities">
                 <h1>foundCities</h1>
                 {foundCities.map((city) => (
-                    <div key={city.Key} onClick={() => handleCityClick(city.Key)}>
-                        {city.LocalizedName}, {city.AdministrativeArea.LocalizedName}, {city.Country.LocalizedName}
+                    <div key={city.Key} onClick={() => handleCityClick(city)}>
+                        {city.LocalizedName}, {city.AdministrativeArea.LocalizedName},{' '}
+                        {city.Country.LocalizedName}
                     </div>
                 ))}
             </div>

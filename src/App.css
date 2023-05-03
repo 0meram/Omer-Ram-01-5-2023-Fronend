@@ -32,66 +32,11 @@ body {
 
 /* Main screen styles */
 
-.container {
+/* .container {
   display: flex;
   flex-direction: row;
   height: 100vh;
-}
-
-.search-input {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-}
-
-/* Favorites screen styles */
-
-.favorites-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #eee;
-  padding: 20px;
-}
-
-.favorites-heading {
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-.favorites-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.favorite-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.favorite-card:hover {
-  background-color: #ddd;
-}
-
-.favorite-card span {
-  margin-right: 10px;
-}
-
-.favorite-card button {
-  background-color: transparent;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.favorite-card button:hover {
-  color: red;
-}
+} */
 
 /* Home component */
 .Home {
@@ -106,6 +51,14 @@ body {
 .search {
   width: 50%;
   padding: 20px;
+}
+
+.search-input {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
 }
 
 /* FoundCities component */
@@ -141,13 +94,37 @@ body {
   padding: 20px;
 }
 
+.CurrentWeather button{
+  width: 100%;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #e85454;
+  cursor: pointer;
+}
+
+
+.CurrentWeather button:hover{
+  background-color: #a70000;
+}
+
+/* Favorites screen styles */
+
+.favorites-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+  padding: 20px;
+  align-items: center;
+}
+
 /* Card component */
 .card {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
+  width: 50%;
 }
 
 /* Card body */
@@ -155,4 +132,5 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
