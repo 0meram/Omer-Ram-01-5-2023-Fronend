@@ -32,9 +32,9 @@ function Home() {
     }
 
     const handleCityClick = (city) => {
-        setSelectedCityKey('city.Key')
-        setSelectedCityName('city.Country.LocalizedName')
-        setSelectedCityTemperature('city.AdministrativeArea.LocalizedName')
+        setSelectedCityKey(city.Key)
+        setSelectedCityName(city.Country.LocalizedName)
+        setSelectedCityTemperature(city.AdministrativeArea.LocalizedName)
     }
 
     const handleAddToFavorites = () => {
